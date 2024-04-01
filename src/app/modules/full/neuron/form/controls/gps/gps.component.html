@@ -1,0 +1,30 @@
+<mat-form-field [style.display]="isInvisible ? 'none': 'block'">
+  <mat-label>{{structure.nombre | titlecase }} </mat-label>
+  <button
+    mat-icon-button
+    matPrefix
+    (click)="showMap()"
+    *ngIf="data.valorText"
+    tabindex="-1"
+  >
+    <mat-icon>map</mat-icon>
+  </button>
+  <input
+    matInput
+    [formControl]="fControl"
+    [name]="structure.llaveTabla"
+    [required]="required"
+    [readonly]="true"
+    autocomplete="off"
+    class="cursor-pointer text-primary underline"
+    (click)="showMap()"
+  />
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="getLocation()"
+    tabindex="-1"
+  >
+    <mat-icon>gps_fixed</mat-icon>
+  </button>
+</mat-form-field>
